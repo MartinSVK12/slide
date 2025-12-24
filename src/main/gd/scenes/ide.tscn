@@ -929,7 +929,7 @@ offset_bottom = 22.0
 grow_horizontal = 2
 text = "Problems"
 
-[node name="Window" parent="." instance=ExtResource("4_y6kp3")]
+[node name="NodeExplorer" parent="." instance=ExtResource("4_y6kp3")]
 initial_position = 3
 current_screen = 0
 visible = false

@@ -7,6 +7,7 @@ var folders: Array[String] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Engine.set_max_fps(60)
 	if FileAccess.file_exists("user://save/workspace.var"):
 		var data = SaveSystem.load_data("workspace")
 		if data != null:

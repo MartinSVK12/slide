@@ -6,7 +6,7 @@ fqName = godot.Debugger
 relativeSourcePath = src/main/kotlin/godot/Debugger.kt
 baseType = Node
 supertypes = [
-    godot.api.Node,
+	godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
@@ -14,13 +14,13 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    
+	
 ]
 functions = [
-    _ready,
+	_ready,
 	_process,
 	_on_resume_button_pressed,
 	_on_evaluator_text_submitted

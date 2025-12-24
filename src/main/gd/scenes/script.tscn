@@ -48,6 +48,7 @@ metadata/_tab_index = 0
 unique_name_in_owner = true
 visible = false
 top_level = true
+layout_mode = 0
 offset_left = 10.0
 offset_right = 83.0
 offset_bottom = 31.0
@@ -60,6 +61,7 @@ vertical_alignment = 1
 [connection signal="breakpoint_toggled" from="." to="." method="_on_breakpoint_toggled"]
 [connection signal="caret_changed" from="." to="." method="_on_caret_changed"]
 [connection signal="code_completion_requested" from="." to="." method="_on_code_completion_requested"]
+[connection signal="lines_edited_from" from="." to="." method="_on_lines_edited_from"]
 [connection signal="symbol_hovered" from="." to="." method="_on_symbol_hovered"]
 [connection signal="symbol_lookup" from="." to="." method="_on_symbol_lookup"]
 [connection signal="symbol_validate" from="." to="." method="_on_symbol_validate"]
