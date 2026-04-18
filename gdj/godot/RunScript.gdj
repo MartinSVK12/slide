@@ -6,9 +6,9 @@ fqName = godot.RunScript
 relativeSourcePath = src/main/kotlin/godot/RunScript.kt
 baseType = Button
 supertypes = [
-	godot.api.Button,
-	sunsetsatellite.lang.sunlite.LogEntryReceiver,
-	sunsetsatellite.lang.sunlite.BreakpointListener,
+    godot.api.Button,
+	sunsetsatellite.sunlite.lang.LogEntryReceiver,
+	sunsetsatellite.sunlite.lang.BreakpointListener,
 	godot.api.BaseButton,
 	godot.api.Control,
 	godot.api.CanvasItem,
@@ -20,13 +20,13 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	
+    
 ]
 functions = [
-	_ready,
+    _ready,
 	_process,
 	_on_pressed
 ]

@@ -4,10 +4,11 @@ import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.api.*
 import godot.core.*
-import sunsetsatellite.lang.sunlite.Sunlite
-import sunsetsatellite.vm.sunlite.CallFrame
-import sunsetsatellite.vm.sunlite.SLClass
-import sunsetsatellite.vm.sunlite.SLClassInstance
+import sunsetsatellite.sunlite.lang.Sunlite
+import sunsetsatellite.sunlite.lang.Type
+import sunsetsatellite.sunlite.vm.CallFrame
+import sunsetsatellite.sunlite.vm.SLClass
+import sunsetsatellite.sunlite.vm.SLClassInstance
 
 @RegisterClass
 class Debugger: Node() {
@@ -83,10 +84,11 @@ class Debugger: Node() {
 		val frameStack = getNode("%EnvVars".asNodePath()) as Tree?
 		frameStack?.clear()
 		val root = frameStack?.createItem(null)
-		frame.stack.forEach {
+		frame.locals.forEachIndexed { i, it ->
 			val stackEntry = root?.createChild()
 			stackEntry?.setCollapsed(true)
-			stackEntry?.setText(0,"$it (${shortName(it)})")
+			val info = frame.closure.function.chunk.debugInfo
+			stackEntry?.setText(0,"${info.locals.getOrNull(i)}: ${Type.fromValue(it.value, currentVM!!)} = $it")
 			loadValues(stackEntry, it.value)
 		}
 	}

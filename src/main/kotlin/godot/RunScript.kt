@@ -7,9 +7,11 @@ import godot.annotation.RegisterFunction
 import godot.api.*
 import godot.core.*
 import godot.global.GD
-import sunsetsatellite.lang.sunlite.BreakpointListener
-import sunsetsatellite.lang.sunlite.LogEntryReceiver
-import sunsetsatellite.lang.sunlite.Sunlite
+import sunsetsatellite.sunlite.lang.BreakpointListener
+import sunsetsatellite.sunlite.lang.LogEntryReceiver
+import sunsetsatellite.sunlite.lang.Sunlite
+
+
 import java.io.PrintWriter
 import java.io.StringWriter
 import kotlin.concurrent.thread
@@ -106,6 +108,7 @@ class RunScript: Button(), LogEntryReceiver, BreakpointListener {
 			val breakpointedLines = (node as CodeEdit).getBreakpointedLines()
 			breakpoints[tabFile.split("/").last()] = breakpointedLines.toIntArray().map { it.inc() }.toIntArray()
 		}
+		println(breakpoints)
 		if(file != ""){
 			currentInterpreter = Sunlite(arrayOf(file,folders.joinToString(";"),options,launchArgs))
 			currentThread = thread(

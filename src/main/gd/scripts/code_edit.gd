@@ -6,7 +6,7 @@ var keywords := ["and", "class", "else", "false", "for", "func", "init", "if", "
 "is", "isnt", "import", "as", "extends", "implements", "try", "catch", "throw", "in", "foreach", 
 "operator", "override"]
 
-var type_keywords := ["Any", "String", "Byte", "Short", "Int", "Long", "Float", "Double", "Boolean", "Function", "Class", "Nil", "Array", "Table"] ##"Number", "Generic"
+var type_keywords := ["Any", "String", "Byte", "Short", "Int", "Long", "Float", "Double", "Boolean", "Function", "Class", "Nil", "Array", "Table", "Generic"] ##"Number", "Generic"
 var control_keywords := ["if","else","while","for","return","and","or","break","continue","is","isnt","as","in","foreach", "match"]
 
 @export var file: String = ""
@@ -30,6 +30,7 @@ func _ready() -> void:
 	for keyword in control_keywords:
 		s.add_keyword_color(keyword, control_keyword_color)
 	s.add_color_region("//","",comment_color,true)
+	s.add_color_region("@","",type_keyword_color,true)
 	s.add_color_region("\"","\"",string_color)
 	#$"./Highlighter".update_cache()
 	#symbol_hovered.connect((get_tree().current_scene.get_node("CodeAnalysis") as CodeAnalysis)._on_symbol_hovered, CONNECT_REFERENCE_COUNTED)

@@ -7,17 +7,16 @@ import godot.api.CodeEdit
 import godot.api.Node
 import godot.api.TabContainer
 import godot.core.*
-import godot.global.GD
-import sunsetsatellite.lang.sunlite.Expr
-import sunsetsatellite.lang.sunlite.LogEntryReceiver
-import sunsetsatellite.lang.sunlite.PrimitiveType
-import sunsetsatellite.lang.sunlite.Sunlite
-import sunsetsatellite.lang.sunlite.Stmt
-import sunsetsatellite.lang.sunlite.SymbolFinder
-import sunsetsatellite.lang.sunlite.Token
-import sunsetsatellite.lang.sunlite.Type
-import sunsetsatellite.lang.sunlite.TypeCollector
-import sunsetsatellite.vm.sunlite.DefaultNatives
+import sunsetsatellite.sunlite.lang.Expr
+import sunsetsatellite.sunlite.lang.LogEntryReceiver
+import sunsetsatellite.sunlite.lang.PrimitiveType
+import sunsetsatellite.sunlite.lang.Stmt
+import sunsetsatellite.sunlite.lang.Sunlite
+import sunsetsatellite.sunlite.lang.SymbolFinder
+import sunsetsatellite.sunlite.lang.Token
+import sunsetsatellite.sunlite.lang.Type
+import sunsetsatellite.sunlite.lang.TypeCollector
+import sunsetsatellite.sunlite.vm.DefaultNatives
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.lang.Thread
@@ -84,9 +83,13 @@ class CodeAnalysis: Node() {
         //GD.print("Hovered $symbol on line $line, column $column")
         //GD.print("Last analysis available: ${lastAnalysis != null}")
 	    lastAnalysis?.let {
-            val foundElement = SymbolFinder(symbol, line+1, column).find(it.second)
+            val foundElement = SymbolFinder(
+	            symbol,
+	            line + 1,
+	            column
+            ).find(it.second)
             if(foundElement is Expr){
-                return foundElement.getExprType().toString()
+                return foundElement.getExprType().toString()+"\n"+foundElement.getExprType().getDescriptor()
             }
         }
         return ""
@@ -95,7 +98,7 @@ class CodeAnalysis: Node() {
 	@RegisterFunction
 	fun _on_member_completion_requested(word: String, line: Int, column: Int, edit: CodeEdit){
 		lastValidAnalysis?.let {
-			val foundElement = SymbolFinder(null, line+1, column).find(it.second)
+			val foundElement = SymbolFinder(word, line+1, column).find(it.second)
 			if(foundElement is Expr){
 				val type = foundElement.getExprType()
 				if(type is Type.Reference){
@@ -106,22 +109,8 @@ class CodeAnalysis: Node() {
 							val prototype = lastTypeCollection!!.typeHierarchy[type.returnType.getName()]
 							prototype?.let {
 								it.scope.contents.forEach { (token, member) ->
-									if(token.lexeme.startsWith(word)){
-										if(member is TypeCollector.FunctionPrototype) {
-											edit.addCodeCompletionOption(
-												type = CodeEdit.CodeCompletionKind.KIND_FUNCTION,
-												displayText = member.modifier.toString() + member.toString(),
-												insertText = token.lexeme.replace(word,""),
-												location = 0
-											)
-										} else if(member is TypeCollector.VariablePrototype){
-											edit.addCodeCompletionOption(
-												type = CodeEdit.CodeCompletionKind.KIND_VARIABLE,
-												displayText = token.lexeme+member.toString(),
-												insertText = token.lexeme.replace(word,""),
-												location = 0
-											)
-										}
+									/*if(token.lexeme.startsWith(word)){
+
 									} else if(word.isBlank()){
 										if(member is TypeCollector.FunctionPrototype) {
 											edit.addCodeCompletionOption(
@@ -138,6 +127,21 @@ class CodeAnalysis: Node() {
 												location = 0
 											)
 										}
+									}*/
+									if(member is TypeCollector.FunctionPrototype) {
+										edit.addCodeCompletionOption(
+											type = CodeEdit.CodeCompletionKind.KIND_FUNCTION,
+											displayText = member.modifier.toString() + member.toString(),
+											insertText = token.lexeme.replace(word,""),
+											location = 0
+										)
+									} else if(member is TypeCollector.VariablePrototype){
+										edit.addCodeCompletionOption(
+											type = CodeEdit.CodeCompletionKind.KIND_VARIABLE,
+											displayText = token.lexeme+member.toString(),
+											insertText = token.lexeme.replace(word,""),
+											location = 0
+										)
 									}
 								}
 							}

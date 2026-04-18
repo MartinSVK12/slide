@@ -6,7 +6,7 @@ fqName = godot.CodeAnalysis
 relativeSourcePath = src/main/kotlin/godot/CodeAnalysis.kt
 baseType = Node
 supertypes = [
-	godot.api.Node,
+    godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
@@ -14,13 +14,13 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	analysis_completed
+    analysis_completed
 ]
 properties = [
-	
+    
 ]
 functions = [
-	_ready,
+    _ready,
 	_process,
 	_on_timer_timeout,
 	_on_symbol_hovered,
