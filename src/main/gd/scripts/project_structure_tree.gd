@@ -33,7 +33,7 @@ func create_dir(path: String, dir_name: String, parent: TreeItem):
 	item.set_text(0,dir_name)
 	item.set_icon_max_width(0,16)
 	item.set_icon(0,load("res://src/main/gd/assets/open_dark.svg"))
-	item.set_metadata(0,{"path":path, "type":"dir"})
+	item.set_metadata(0,{"path":path.path_join(dir_name), "type":"dir"})
 	#item.add_button(0,load("res://src/main/gd/assets/add_dark.svg"))
 	#item.add_button(0,load("res://src/main/gd/assets/moreVertical_dark.svg"))
 	return item

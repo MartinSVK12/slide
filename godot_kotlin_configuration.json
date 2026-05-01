@@ -1,7 +1,7 @@
 {
 	"custom_jvm_args": [],
 	"debug_address": "*",
-	"debug_port": 5007,
+	"debug_port": 5008,
 	"disable_gc": false,
 	"jmx_port": -1,
 	"max_string_size": -1,

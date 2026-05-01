@@ -4,7 +4,7 @@ class_name ScriptEdit
 var keywords := ["and", "class", "else", "false", "for", "func", "init", "if", "nil", "or", "return", 
 "super", "this", "true", "var", "val", "while", "break", "continue", "static", "native", "interface", 
 "is", "isnt", "import", "as", "extends", "implements", "try", "catch", "throw", "in", "foreach", 
-"operator", "override"]
+"operator", "override", "include", "package", "from", "required", "abstract"]
 
 var type_keywords := ["Any", "String", "Byte", "Short", "Int", "Long", "Float", "Double", "Boolean", "Function", "Class", "Nil", "Array", "Table", "Generic"] ##"Number", "Generic"
 var control_keywords := ["if","else","while","for","return","and","or","break","continue","is","isnt","as","in","foreach", "match"]
@@ -116,10 +116,16 @@ func _input(event: InputEvent) -> void:
 
 func save():
 	var f = FileAccess.open(file,FileAccess.WRITE)
-	if f == null: return
+	if f == null: 
+		get_tree().current_scene.notify("Failed to save!",Color.RED,1)
+		return
 	f.store_string(text)
+	if f.get_error() != OK:
+		get_tree().current_scene.notify("Failed to save: "+error_string(f.get_error()),Color.RED,1)
+	f.flush()
 	f.close()
 	get_tree().get_root().set_input_as_handled()
+	get_tree().current_scene.notify("Saved!",Color.LIME,1)
 
 
 func _on_caret_changed() -> void:

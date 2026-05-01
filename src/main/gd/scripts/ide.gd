@@ -24,6 +24,7 @@ func _ready() -> void:
 				var cfgs: Array[Dictionary] = data[3]
 				for cfg in cfgs:
 					%RunConfigButton.run_configs.append(RunConfigButton.RunConfig.new(cfg["name"],cfg["file"],cfg["path"],cfg["options"],cfg["launchArgs"]))
+			notify("Loaded!", Color.DODGER_BLUE, 2)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -42,6 +43,15 @@ func _notification(what: int) -> void:
 				"launchArgs": cfg.launch_args
 			})
 		SaveSystem.save_data([current_file,current_folder,opened_files,run_configs],"workspace")
+
+func notify(message: String, color: Color = Color.LIME, timeout: int = 3):
+	var ps: PackedScene = load("res://src/main/gd/scenes/notification.tscn")
+	var n = ps.instantiate()
+	n.message = message
+	n.color = color
+	n.timeout = timeout
+	%Notifications.add_child(n)
+	pass
 
 func _process(delta: float) -> void:
 	var w_x = get_tree().get_root().size.x

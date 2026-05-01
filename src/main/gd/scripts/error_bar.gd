@@ -10,6 +10,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var lastTime := %CodeAnalysis.get("last_analysis_time") as int
+	var currentTime := Time.get_ticks_msec()
+	if lastTime+10000 < currentTime and get_tree().current_scene.current_file != "":
+		show()
+		%"ProblemsFound/../../NoProblems".visible = false
+		$HBox/ErrorLine.set_text("Code analysis unresponsive.")
+		$HBox/ErrorCount.set_text("[{0} errors]".format([1]))
+		pass
 	pass
 
 

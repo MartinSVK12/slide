@@ -2,10 +2,12 @@ package godot
 
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
+import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
 import godot.api.CodeEdit
 import godot.api.Node
 import godot.api.TabContainer
+import godot.api.Time
 import godot.core.*
 import sunsetsatellite.sunlite.lang.Expr
 import sunsetsatellite.sunlite.lang.LogEntryReceiver
@@ -32,24 +34,28 @@ class CodeAnalysis: Node() {
 	    var lastTypeCollection: TypeCollector? = null
     }
 
+	@RegisterProperty
+	var lastAnalysisTime: Long = 0
+
     @RegisterSignal("errors","tokens")
     val analysisCompleted by signal2<VariantArray<String>,VariantArray<Dictionary<Any?,Any?>>>()
     
     // Called when the node enters the scene tree for the first time.
     @RegisterFunction
     override fun _ready() {
-        
+	    lastAnalysisTime = Time.getTicksMsec()
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     @RegisterFunction
     override fun _process(delta: Double) {
-        
+
     }
 
     fun analysisFinished(errors: List<String>, result: Pair<List<Token>,List<Stmt>>? = null){
         inProgress = false
         lastAnalysis = result
+	    lastAnalysisTime = Time.getTicksMsec()
 	    if(errors.isEmpty()){
 			lastValidAnalysis = result
 		    lastTypeCollection = Sunlite.instance.collector
@@ -108,7 +114,7 @@ class CodeAnalysis: Node() {
 						lastTypeCollection?.let {
 							val prototype = lastTypeCollection!!.typeHierarchy[type.returnType.getName()]
 							prototype?.let {
-								it.scope.contents.forEach { (token, member) ->
+								it.scope?.contents?.forEach { (token, member) ->
 									/*if(token.lexeme.startsWith(word)){
 
 									} else if(word.isBlank()){
@@ -131,7 +137,7 @@ class CodeAnalysis: Node() {
 									if(member is TypeCollector.FunctionPrototype) {
 										edit.addCodeCompletionOption(
 											type = CodeEdit.CodeCompletionKind.KIND_FUNCTION,
-											displayText = member.modifier.toString() + member.toString(),
+											displayText = member.modifier.joinToString("") { m -> m.s } + member.toString(),
 											insertText = token.lexeme.replace(word,""),
 											location = 0
 										)
@@ -158,7 +164,7 @@ class CodeAnalysis: Node() {
 			if(name.startsWith(word)){
 				var signature = name
 				val type = lastTypeCollection?.findType(Token.identifier(name, line))
-				type?.let { signature = (it as TypeCollector.FunctionPrototype).modifier.toString() + it.toString() }
+				type?.let { signature = (it as TypeCollector.FunctionPrototype).modifier.joinToString("") { m -> m.s } + it.toString() }
 				edit.addCodeCompletionOption(
 					type = CodeEdit.CodeCompletionKind.KIND_FUNCTION,
 					displayText = signature.replace("#","."),
@@ -175,7 +181,7 @@ class CodeAnalysis: Node() {
 							if(prototype is TypeCollector.FunctionPrototype) {
 								edit.addCodeCompletionOption(
 									type = CodeEdit.CodeCompletionKind.KIND_FUNCTION,
-									displayText = prototype.modifier.toString()+prototype.toString(),
+									displayText = prototype.modifier.joinToString("") { m -> m.s }+prototype.toString(),
 									insertText = token.lexeme.replace(word,""),
 									location = 0
 								)
