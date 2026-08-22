@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://con7my4xc0ua5"]
-
-[ext_resource type="Script" uid="uid://twgcowmsoic3" path="res://node_explorer/node_explorer_cli.gd" id="1_cgiag"]
-
-[node name="NodeExplorerCli" type="Node"]
-script = ExtResource("1_cgiag")

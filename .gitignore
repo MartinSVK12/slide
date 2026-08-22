@@ -1,9 +1,11 @@
 .godot/
 /android/
-/build/
 .gradle
 .kotlin
 .idea
 build
-jre
+jvm
+src/main/kotlin/sunsetsatellite/sunlite/lang
+src/main/kotlin/sunsetsatellite/sunlite/vm
+src/main/resources/sunlite
 *.import

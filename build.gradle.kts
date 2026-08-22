@@ -1,57 +1,39 @@
+import godot.annotation.processor.classgraph.AnnotationProcessingMode
+import godot.gradle.GodotLanguage
+
 plugins {
-    id("com.utopia-rise.godot-kotlin-jvm") version "0.13.1-4.4.1"
+    id("com.utopia-rise.godot-kotlin-jvm") version "0.17.1-4.7.2"
 }
 
 repositories {
     mavenCentral()
 }
 
-kotlin {
-    jvmToolchain(17)
+dependencies {
+	implementation("org.apache.commons:commons-compress:1.28.0")
 }
 
 godot {
-    // ---------Setup-----------------
+    // --------- Setup ---------
+    languages.set(setOf(GodotLanguage.KOTLIN))
+    annotationProcessingMode.set(AnnotationProcessingMode.Inferred)
+    godotProjectDirectory.set(file(".")) // only change this if the Godot project root is not this Gradle project directory
+    // Enable to mark this Gradle project as a reusable library rather than a runnable Godot project.
+    //isLibrary.set(true)
 
-    // the script registration which you'll attach to nodes are generated into this directory
-    registrationFileBaseDir.set(projectDir.resolve("gdj"))
-
-	// Create .gdj files from all JVM scripts
-	isRegistrationFileGenerationEnabled.set(true)
-
+    // Enable coroutines integration with Godot signal/lifecycle callbacks.
     isGodotCoroutinesEnabled.set(true)
 
-    // defines whether the script registration files should be generated hierarchically according to the classes package path or flattened into `registrationFileBaseDir`
-    //isRegistrationFileHierarchyEnabled.set(true)
-
-    // defines whether your scripts should be registered with their fqName or their simple name (can help with resolving script name conflicts)
-    //isFqNameRegistrationEnabled.set(false)
-
-    // ---------Android----------------
-
-    // NOTE: Make sure you read: https://godot-kotl.in/en/stable/user-guide/exporting/#android as not all jvm libraries are compatible with android!
-    // IMPORTANT: Android export should to be considered from the start of development!
-    //isAndroidExportEnabled.set(ANDROID_ENABLED)
-    //d8ToolPath.set(File("D8_TOOL_PATH"))
-    //androidCompileSdkDir.set(File("ANDROID_COMPILE_SDK_DIR"))
-
-    // --------IOS and Graal------------
-
-    // NOTE: this is an advanced feature! Read: https://godot-kotl.in/en/stable/user-guide/advanced/graal-vm-native-image/
-    // IMPORTANT: Graal Native Image needs to be considered from the start of development!
-    //isGraalNativeImageExportEnabled.set(IS_GRAAL_VM_ENABLED)
-    //graalVmDirectory.set(File("GRAAL_VM_DIR"))
-    //windowsDeveloperVCVarsPath.set(File("WINDOWS_DEVELOPER_VS_VARS_PATH"))
-    //isIOSExportEnabled.set(IS_IOS_ENABLED)
-
-	// --------Library authors------------
-
-	// library setup. See: https://godot-kotl.in/en/stable/develop-libraries/
-    //classPrefix.set("MyCustomClassPrefix")
-    //projectName.set("LibraryProjectName")
-    //projectName.set("LibraryProjectName")
+    // --------- Toolchain ---------
+    //javaVersion.set(17)
+    //kotlinVersion.set("2.3.20")
+    //scalaVersion.set("3.6.3")
 }
 
-dependencies {
-    implementation(project(":sl"))
+tasks.generateEmbeddedJre.configure {
+    modules = arrayOf(
+	    "java.base",
+	    "java.logging",
+		"jdk.jdwp.agent"
+    )
 }

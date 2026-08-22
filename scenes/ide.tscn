@@ -1,0 +1,521 @@
+[gd_scene format=3 uid="uid://bkmiht7cjvpdc"]
+
+[ext_resource type="Theme" uid="uid://douvdg4p7sb04" path="res://assets/theme.tres" id="1_f0duq"]
+[ext_resource type="Script" uid="uid://blt4oxobe34u5" path="res://src/main/kotlin/sunsetsatellite/slide/IDE.kt" id="1_kaiy7"]
+[ext_resource type="Script" uid="uid://b2fnojcqdngqu" path="res://src/main/kotlin/sunsetsatellite/slide/FileButton.kt" id="2_g2orf"]
+[ext_resource type="Texture2D" uid="uid://d0tsepnspigfk" path="res://assets/projectDirectory_dark.svg" id="2_qkgnc"]
+[ext_resource type="Texture2D" uid="uid://b0r71pspjo3n2" path="res://assets/refresh_dark.svg" id="3_h1ns2"]
+[ext_resource type="Texture2D" uid="uid://bahr2iunway5l" path="res://assets/run_dark.svg" id="3_pdtwl"]
+[ext_resource type="Texture2D" uid="uid://db07mskthpypc" path="res://assets/shell_dark.svg" id="4_5jotv"]
+[ext_resource type="Script" uid="uid://c7f2ppsbq7643" path="res://src/main/kotlin/sunsetsatellite/slide/ProjectFiles.kt" id="4_78c8m"]
+[ext_resource type="Texture2D" uid="uid://daw0sfvnkhmni" path="res://assets/stop_dark.svg" id="4_gosap"]
+[ext_resource type="Script" uid="uid://neq4boo0xkaj" path="res://src/main/kotlin/sunsetsatellite/slide/RunButton.kt" id="4_kfsvl"]
+[ext_resource type="Script" uid="uid://b73c5nkkxktie" path="res://src/main/kotlin/sunsetsatellite/slide/ScriptContainer.kt" id="6_7rcaa"]
+[ext_resource type="Texture2D" uid="uid://ctvlck3wkj2cp" path="res://assets/delete_dark.svg" id="7_byolr"]
+[ext_resource type="Script" uid="uid://bf8s1v4i1uwlq" path="res://src/main/kotlin/sunsetsatellite/slide/SidebarButton.kt" id="7_ro6xt"]
+[ext_resource type="Texture2D" uid="uid://c04rlg55aqxvj" path="res://assets/problems_dark.svg" id="8_5a5ar"]
+[ext_resource type="Script" uid="uid://bo6dhxorapojv" path="res://src/main/kotlin/sunsetsatellite/slide/BottomMainBar.kt" id="8_ex7lt"]
+[ext_resource type="Texture2D" uid="uid://b0nb0ng2551vf" path="res://assets/debug_window_dark.svg" id="9_14etf"]
+[ext_resource type="Script" uid="uid://bqa1ywo887t3t" path="res://src/main/kotlin/sunsetsatellite/slide/CodeAnalysis.kt" id="13_2mcee"]
+[ext_resource type="Script" uid="uid://6j7beraib45v" path="res://src/main/kotlin/sunsetsatellite/slide/Debugger.kt" id="15_uj8hv"]
+[ext_resource type="PackedScene" uid="uid://vhav1fjsrark" path="res://addons/node_explorer/node_explorer.tscn" id="16_6jk35"]
+[ext_resource type="Script" uid="uid://bedwwd1ljiayl" path="res://src/main/kotlin/sunsetsatellite/slide/FindAnything.kt" id="17_gq4ln"]
+[ext_resource type="Texture2D" uid="uid://d4vklg5ftcsk" path="res://assets/search_dark.svg" id="17_l2c5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_usv6e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu1eu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqdah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yxuqo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxuqo"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.09985284, 0.09985284, 0.09985284, 0.6)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mcee"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0)
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gosap"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0anrn"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 1, 0, 0.2509804)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jk35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ngcc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfsvl"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(1, 0, 0, 0.2509804)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1ns2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwcv1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f0duq"]
+font_size = 14
+font_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq4ln"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7dsd"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.24780053, 0.24780053, 0.24780053, 0.6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxuqo"]
+font_size = 14
+font_color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="IDE" type="PanelContainer" unique_id=1571149901]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_f0duq")
+script = ExtResource("1_kaiy7")
+project_path = "E:/Stuff/Godot/JVM/slide/src/main/resources"
+
+[node name="Root" type="VBoxContainer" parent="." unique_id=1963843880]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Root" unique_id=923072941]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FileButton" type="MenuButton" parent="Root/TopBar" unique_id=566307804]
+custom_minimum_size = Vector2(48, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usv6e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wu1eu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vqdah")
+text = "File"
+item_count = 1
+popup/item_0/text = "Open folder..."
+popup/item_0/id = 0
+script = ExtResource("2_g2orf")
+
+[node name="HSeparator" type="HSeparator" parent="Root/TopBar" unique_id=957861483]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yxuqo")
+
+[node name="VMOptions" type="LineEdit" parent="Root/TopBar" unique_id=1885958364]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxuqo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2mcee")
+placeholder_text = "VM Options..."
+expand_to_text_length = true
+
+[node name="RunButton" type="Button" parent="Root/TopBar" unique_id=1672227411]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_gosap")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0anrn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6jk35")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ngcc")
+text = "Run"
+icon = ExtResource("3_pdtwl")
+expand_icon = true
+script = ExtResource("4_kfsvl")
+
+[node name="StopButton" type="Button" parent="Root/TopBar" unique_id=1392258257]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_gosap")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kfsvl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ngcc")
+text = "Stop"
+icon = ExtResource("4_gosap")
+expand_icon = true
+
+[node name="Main" type="HBoxContainer" parent="Root" unique_id=693131816]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LeftSideBar" type="VBoxContainer" parent="Root/Main" unique_id=680024312]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ProjectButton" type="Button" parent="Root/Main/LeftSideBar" unique_id=899397978 node_paths=PackedStringArray("screen")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_constants/icon_max_width = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h1ns2")
+toggle_mode = true
+icon = ExtResource("2_qkgnc")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_ro6xt")
+screen = NodePath("../../VSplitContainer/HBoxContainer/HSplitContainer/ProjectContainer")
+
+[node name="VSeparator" type="VSeparator" parent="Root/Main/LeftSideBar" unique_id=1730964864]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mwcv1")
+
+[node name="DebuggerButton" type="Button" parent="Root/Main/LeftSideBar" unique_id=1906946688 node_paths=PackedStringArray("screen")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_constants/icon_max_width = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h1ns2")
+toggle_mode = true
+icon = ExtResource("9_14etf")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_ro6xt")
+screen = NodePath("../../VSplitContainer/BottomMainBar/Debugger")
+
+[node name="ConsoleButton" type="Button" parent="Root/Main/LeftSideBar" unique_id=1311390016 node_paths=PackedStringArray("screen")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_constants/icon_max_width = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h1ns2")
+toggle_mode = true
+icon = ExtResource("4_5jotv")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_ro6xt")
+screen = NodePath("../../VSplitContainer/BottomMainBar/Console")
+
+[node name="ProblemsButton" type="Button" parent="Root/Main/LeftSideBar" unique_id=746917419 node_paths=PackedStringArray("screen")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_constants/icon_max_width = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h1ns2")
+toggle_mode = true
+icon = ExtResource("8_5a5ar")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_ro6xt")
+screen = NodePath("../../VSplitContainer/BottomMainBar/Problems")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Root/Main" unique_id=73325258]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+split_offsets = PackedInt32Array(-150)
+split_offset = -150
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Root/Main/VSplitContainer" unique_id=2054612827]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Root/Main/VSplitContainer/HBoxContainer" unique_id=1406511923]
+layout_mode = 2
+size_flags_horizontal = 3
+split_offsets = PackedInt32Array(196)
+split_offset = 196
+
+[node name="ProjectContainer" type="VBoxContainer" parent="Root/Main/VSplitContainer/HBoxContainer/HSplitContainer" unique_id=2010012588]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Root/Main/VSplitContainer/HBoxContainer/HSplitContainer/ProjectContainer" unique_id=1354670516]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/Main/VSplitContainer/HBoxContainer/HSplitContainer/ProjectContainer/TopBar" unique_id=1064134405]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Project"
+
+[node name="FileSystemRefreshButton" type="TextureButton" parent="Root/Main/VSplitContainer/HBoxContainer/HSplitContainer/ProjectContainer/TopBar" unique_id=1540616784]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("3_h1ns2")
+texture_pressed = ExtResource("3_h1ns2")
+texture_hover = ExtResource("3_h1ns2")
+texture_disabled = ExtResource("3_h1ns2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ProjectFiles" type="Tree" parent="Root/Main/VSplitContainer/HBoxContainer/HSplitContainer/ProjectContainer" unique_id=2046236509]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4_78c8m")
+
+[node name="ScriptContainer" type="TabContainer" parent="Root/Main/VSplitContainer/HBoxContainer/HSplitContainer" unique_id=746779980]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/side_margin = 0
+theme_override_constants/icon_separation = 8
+theme_override_constants/icon_max_width = 16
+drag_to_rearrange_enabled = true
+script = ExtResource("6_7rcaa")
+
+[node name="BottomMainBar" type="HSplitContainer" parent="Root/Main/VSplitContainer" unique_id=1217821727]
+visible = false
+layout_mode = 2
+script = ExtResource("8_ex7lt")
+
+[node name="Debugger" type="VBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar" unique_id=912461082]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("15_uj8hv")
+
+[node name="Label" type="Label" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger" unique_id=1367805444]
+layout_mode = 2
+text = "Debugger"
+
+[node name="TopBar" type="HBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger" unique_id=1608769271]
+layout_mode = 2
+
+[node name="ProgramState" type="Label" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger/TopBar" unique_id=914450403]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No program is running..."
+label_settings = SubResource("LabelSettings_f0duq")
+
+[node name="ContinueButton" type="Button" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger/TopBar" unique_id=715999959]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+icon = ExtResource("3_pdtwl")
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBox" type="HSplitContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger" unique_id=99489336]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger/HBox" unique_id=689476708]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StackFrames" type="Tree" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger/HBox/VBox" unique_id=1163496506]
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="VBox2" type="VBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger/HBox" unique_id=1126253664]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FrameData" type="Tree" parent="Root/Main/VSplitContainer/BottomMainBar/Debugger/HBox/VBox2" unique_id=524473984]
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="Console" type="VBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar" unique_id=607259000]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Root/Main/VSplitContainer/BottomMainBar/Console" unique_id=514334300]
+layout_mode = 2
+text = "Console Output"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Console" unique_id=1716527788]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Console/HBoxContainer" unique_id=1654441287]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConsoleOutput" type="RichTextLabel" parent="Root/Main/VSplitContainer/BottomMainBar/Console/HBoxContainer/PanelContainer" unique_id=1035517872]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Console/HBoxContainer" unique_id=1625112331]
+layout_mode = 2
+
+[node name="ClearConsoleOutputButton" type="TextureButton" parent="Root/Main/VSplitContainer/BottomMainBar/Console/HBoxContainer/VBoxContainer" unique_id=1483066685]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture_normal = ExtResource("7_byolr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Problems" type="VBoxContainer" parent="Root/Main/VSplitContainer/BottomMainBar" unique_id=1633606587]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Root/Main/VSplitContainer/BottomMainBar/Problems" unique_id=2038796501]
+layout_mode = 2
+text = "Problems"
+
+[node name="PanelContainer" type="PanelContainer" parent="Root/Main/VSplitContainer/BottomMainBar/Problems" unique_id=1253284059]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ErrorLog" type="RichTextLabel" parent="Root/Main/VSplitContainer/BottomMainBar/Problems/PanelContainer" unique_id=1991079166]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomBar" type="HBoxContainer" parent="Root" unique_id=2107530605]
+layout_mode = 2
+
+[node name="IdeInfo" type="Label" parent="Root/BottomBar" unique_id=595481268]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="OpenFolderDialog" type="FileDialog" parent="." unique_id=298519247]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a Directory"
+initial_position = 4
+theme = ExtResource("1_f0duq")
+file_mode = 2
+access = 2
+
+[node name="CodeAnalysis" type="Node" parent="." unique_id=1879164676]
+unique_name_in_owner = true
+script = ExtResource("13_2mcee")
+
+[node name="Timer" type="Timer" parent="CodeAnalysis" unique_id=1931762938]
+autostart = true
+
+[node name="NodeExplorer" parent="." unique_id=1153894648 instance=ExtResource("16_6jk35")]
+initial_position = 3
+current_screen = 0
+visible = false
+
+[node name="FindAnything" type="PopupPanel" parent="." unique_id=1122393563]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Find anything..."
+initial_position = 4
+size = Vector2i(600, 400)
+unresizable = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_gq4ln")
+script = ExtResource("17_gq4ln")
+
+[node name="VBox" type="VBoxContainer" parent="FindAnything" unique_id=169565266]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FindAnything/VBox" unique_id=45200799]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Find Anything"
+vertical_alignment = 1
+
+[node name="SearchLine" type="LineEdit" parent="FindAnything/VBox" unique_id=681016321]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Results")
+focus_next = NodePath("../Results")
+focus_previous = NodePath("../Results")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxuqo")
+select_all_on_focus = true
+caret_blink = true
+right_icon = ExtResource("17_l2c5o")
+icon_expand_mode = 1
+
+[node name="Results" type="Tree" parent="FindAnything/VBox" unique_id=1241148991]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7dsd")
+hide_root = true
+
+[node name="SearchInFiles" type="PopupPanel" parent="." unique_id=1204324409]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Find anything..."
+initial_position = 4
+size = Vector2i(600, 400)
+unresizable = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_gq4ln")
+
+[node name="VBox" type="VBoxContainer" parent="SearchInFiles" unique_id=2610332]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SearchInFiles/VBox" unique_id=707661597]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="SearchInFiles/VBox/HBoxContainer" unique_id=813120726]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Search in Files"
+vertical_alignment = 1
+
+[node name="SearchCount" type="Label" parent="SearchInFiles/VBox/HBoxContainer" unique_id=1745484219]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "0 results in 0 files"
+label_settings = SubResource("LabelSettings_yxuqo")
+vertical_alignment = 1
+
+[node name="SearchLine" type="LineEdit" parent="SearchInFiles/VBox" unique_id=2036121830]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Results")
+focus_next = NodePath("../Results")
+focus_previous = NodePath("../Results")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxuqo")
+select_all_on_focus = true
+caret_blink = true
+right_icon = ExtResource("17_l2c5o")
+icon_expand_mode = 1
+
+[node name="Results" type="Tree" parent="SearchInFiles/VBox" unique_id=166436212]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7dsd")
+hide_root = true

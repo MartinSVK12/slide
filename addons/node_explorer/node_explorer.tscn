@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://vhav1fjsrark"]
+
+[ext_resource type="Theme" uid="uid://eeusa41vjb10" path="res://addons/node_explorer/editor_theme.tres" id="1_uh1wp"]
+[ext_resource type="Script" uid="uid://dlicw3yhbg8js" path="res://addons/node_explorer/node_tree.gd" id="2_7x3pq"]
+[ext_resource type="Script" uid="uid://dv5hk03wwxfej" path="res://addons/node_explorer/resource_tree.gd" id="3_wfe6g"]
+
+[sub_resource type="Image" id="Image_nssuy"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 219, 219, 0, 224, 224, 224, 0, 224, 224, 224, 0, 219, 219, 219, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 223, 223, 0, 220, 220, 220, 0, 219, 219, 219, 0, 219, 219, 219, 29, 224, 224, 224, 255, 224, 224, 224, 255, 219, 219, 219, 29, 219, 219, 219, 0, 220, 220, 220, 0, 223, 223, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 223, 223, 0, 223, 223, 223, 90, 220, 220, 220, 51, 221, 221, 221, 0, 222, 222, 222, 93, 224, 224, 224, 255, 224, 224, 224, 255, 222, 222, 222, 93, 221, 221, 221, 0, 220, 220, 220, 51, 223, 223, 223, 90, 223, 223, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 223, 223, 0, 223, 223, 223, 89, 223, 223, 223, 254, 224, 224, 224, 255, 223, 223, 223, 161, 223, 223, 223, 213, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 213, 223, 223, 223, 160, 224, 224, 224, 255, 223, 223, 223, 254, 223, 223, 223, 88, 223, 223, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 221, 221, 221, 0, 221, 221, 221, 53, 223, 223, 223, 253, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 253, 221, 221, 221, 53, 221, 221, 221, 0, 0, 0, 0, 0, 0, 0, 0, 0, 221, 221, 221, 0, 221, 221, 221, 0, 223, 223, 223, 162, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 162, 221, 221, 221, 0, 221, 221, 221, 0, 0, 0, 0, 0, 221, 221, 221, 0, 221, 221, 221, 30, 221, 221, 221, 91, 223, 223, 223, 217, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 192, 220, 220, 220, 52, 220, 220, 220, 52, 223, 223, 223, 192, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 217, 221, 221, 221, 91, 221, 221, 221, 30, 221, 221, 221, 0, 224, 224, 224, 0, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 220, 220, 220, 51, 220, 220, 220, 0, 220, 220, 220, 0, 220, 220, 220, 51, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 250, 223, 223, 223, 0, 224, 224, 224, 0, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 219, 219, 219, 50, 219, 219, 219, 0, 219, 219, 219, 0, 219, 219, 219, 50, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 250, 223, 223, 223, 0, 221, 221, 221, 0, 221, 221, 221, 30, 221, 221, 221, 91, 223, 223, 223, 218, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 192, 220, 220, 220, 51, 220, 220, 220, 52, 223, 223, 223, 192, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 217, 221, 221, 221, 91, 221, 221, 221, 30, 221, 221, 221, 0, 0, 0, 0, 0, 221, 221, 221, 0, 221, 221, 221, 0, 223, 223, 223, 162, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 162, 221, 221, 221, 0, 221, 221, 221, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 220, 220, 0, 220, 220, 220, 52, 223, 223, 223, 253, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 253, 220, 220, 220, 52, 220, 220, 220, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 223, 223, 0, 223, 223, 223, 88, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 163, 223, 223, 223, 213, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 213, 223, 223, 223, 164, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 88, 223, 223, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 223, 223, 0, 223, 223, 223, 90, 221, 221, 221, 54, 222, 222, 222, 0, 222, 222, 222, 94, 224, 224, 224, 255, 224, 224, 224, 255, 222, 222, 222, 94, 222, 222, 222, 0, 221, 221, 221, 54, 223, 223, 223, 90, 223, 223, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 223, 223, 0, 221, 221, 221, 0, 219, 219, 219, 0, 219, 219, 219, 29, 224, 224, 224, 255, 224, 224, 224, 255, 219, 219, 219, 29, 219, 219, 219, 0, 221, 221, 221, 0, 223, 223, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 219, 219, 0, 224, 224, 224, 0, 224, 224, 224, 0, 219, 219, 219, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="2349"]
+image = SubResource("Image_nssuy")
+
+[sub_resource type="Image" id="Image_nvcdt"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 178, 178, 178, 0, 178, 178, 178, 0, 188, 188, 188, 0, 213, 213, 213, 0, 224, 224, 224, 0, 224, 224, 224, 0, 224, 224, 224, 0, 224, 224, 224, 0, 224, 224, 224, 0, 223, 223, 223, 0, 221, 221, 221, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 178, 178, 178, 0, 178, 178, 178, 60, 178, 178, 178, 201, 188, 188, 188, 255, 213, 213, 213, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 201, 221, 221, 221, 60, 221, 221, 221, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 179, 179, 179, 0, 179, 179, 179, 199, 207, 207, 207, 200, 211, 211, 211, 255, 189, 189, 189, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 222, 222, 222, 199, 222, 222, 222, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 180, 180, 180, 255, 180, 180, 180, 255, 180, 180, 180, 255, 180, 180, 180, 255, 180, 180, 180, 255, 202, 202, 202, 0, 224, 224, 224, 0, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 180, 180, 180, 255, 180, 180, 180, 255, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180, 180, 180, 0, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 180, 180, 180, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 179, 179, 179, 0, 179, 179, 179, 200, 206, 206, 206, 196, 211, 211, 211, 255, 189, 189, 189, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 200, 223, 223, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 178, 178, 178, 0, 178, 178, 178, 60, 179, 179, 179, 202, 188, 188, 188, 255, 213, 213, 213, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 223, 223, 223, 201, 221, 221, 221, 60, 221, 221, 221, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 178, 178, 178, 0, 179, 179, 179, 0, 188, 188, 188, 0, 213, 213, 213, 0, 224, 224, 224, 0, 224, 224, 224, 0, 224, 224, 224, 0, 224, 224, 224, 0, 224, 224, 224, 0, 223, 223, 223, 0, 221, 221, 221, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="2351"]
+image = SubResource("Image_nvcdt")
+
+[node name="NodeExplorer" type="Window" unique_id=1741683194]
+oversampling_override = 1.0
+title = "Node Explorer"
+initial_position = 1
+size = Vector2i(1024, 600)
+unresizable = true
+
+[node name="NodeExplorer" type="ColorRect" parent="." unique_id=1875700061]
+custom_minimum_size = Vector2(1024, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -300.0
+offset_right = 512.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uh1wp")
+color = Color(0.145098, 0.168627, 0.203922, 1)
+
+[node name="NodeTree" type="Tree" parent="NodeExplorer" unique_id=1349201182]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_right = 256.0
+offset_bottom = -60.0
+grow_vertical = 2
+allow_reselect = true
+script = ExtResource("2_7x3pq")
+
+[node name="ReloadButton" type="Button" parent="NodeExplorer" unique_id=1961997681]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 40.0
+text = "Reload"
+
+[node name="PropertyList" type="ItemList" parent="NodeExplorer" unique_id=1003189703]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 40.0
+offset_right = 640.0
+offset_bottom = -32.0
+grow_vertical = 2
+item_count = 1
+fixed_icon_size = Vector2i(16, 16)
+item_0/text = "No properties to display."
+item_0/disabled = true
+
+[node name="MethodList" type="ItemList" parent="NodeExplorer" unique_id=1901427911]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = 40.0
+offset_right = 1024.0
+offset_bottom = -32.0
+grow_vertical = 2
+item_count = 1
+fixed_icon_size = Vector2i(16, 16)
+item_0/text = "No methods to display."
+item_0/disabled = true
+
+[node name="PropertyEdit" type="LineEdit" parent="NodeExplorer" unique_id=1960879423]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = -32.0
+offset_right = 576.0
+grow_vertical = 0
+placeholder_text = "Enter value or property=value"
+clear_button_enabled = true
+
+[node name="Search" type="LineEdit" parent="NodeExplorer" unique_id=1727048161]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 256.0
+grow_vertical = 0
+placeholder_text = "Search nodes..."
+clear_button_enabled = true
+
+[node name="MethodEdit" type="LineEdit" parent="NodeExplorer" unique_id=1050282836]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = -32.0
+offset_right = 960.0
+grow_vertical = 0
+placeholder_text = "Enter arguments or method=[args]"
+clear_button_enabled = true
+
+[node name="SetPropertyButton" type="Button" parent="NodeExplorer" unique_id=639270053]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_top = -32.0
+offset_right = 640.0
+offset_bottom = 1.0
+grow_vertical = 0
+text = "Set"
+
+[node name="CallMethodButton" type="Button" parent="NodeExplorer" unique_id=43801688]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 960.0
+offset_top = -32.0
+offset_right = 1024.0
+offset_bottom = 1.0
+grow_vertical = 0
+text = "Call"
+
+[node name="PropertyHeader" type="Panel" parent="NodeExplorer" unique_id=938156797]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="NodeExplorer/PropertyHeader" unique_id=623351401]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -1.0
+offset_right = 136.0
+offset_bottom = 28.0
+text = "Properties"
+
+[node name="TextureRect" type="TextureRect" parent="NodeExplorer/PropertyHeader" unique_id=1978079942]
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_right = 48.0
+offset_bottom = 32.0
+texture = SubResource("2349")
+stretch_mode = 4
+
+[node name="PropertySearch" type="LineEdit" parent="NodeExplorer/PropertyHeader" unique_id=167156026]
+layout_mode = 0
+offset_left = 144.0
+offset_right = 360.0
+offset_bottom = 32.0
+placeholder_text = "Search properties..."
+clear_button_enabled = true
+
+[node name="MethodHeader" type="Panel" parent="NodeExplorer" unique_id=454357088]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 8.0
+offset_right = 1016.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="NodeExplorer/MethodHeader" unique_id=1560836244]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 120.0
+offset_bottom = 29.0
+text = "Methods"
+
+[node name="TextureRect" type="TextureRect" parent="NodeExplorer/MethodHeader" unique_id=994975280]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_right = 40.0
+offset_bottom = 32.0
+texture = SubResource("2351")
+stretch_mode = 4
+
+[node name="MethodSearch" type="LineEdit" parent="NodeExplorer/MethodHeader" unique_id=1976149106]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -248.0
+offset_bottom = 32.0
+grow_horizontal = 0
+placeholder_text = "Search methods..."
+clear_button_enabled = true
+
+[node name="CloseButton" type="Button" parent="NodeExplorer" unique_id=128707330]
+layout_mode = 0
+offset_left = 216.0
+offset_right = 256.0
+offset_bottom = 40.0
+text = "X"
+
+[node name="CheckButton" type="CheckButton" parent="NodeExplorer" unique_id=1199442589]
+layout_mode = 0
+offset_top = 540.0
+offset_right = 256.0
+offset_bottom = 571.0
+text = "Resource Mode"
+
+[node name="ResourceTree" type="Tree" parent="NodeExplorer" unique_id=1373539132]
+visible = false
+layout_mode = 0
+offset_top = 40.0
+offset_right = 256.0
+offset_bottom = 540.0
+script = ExtResource("3_wfe6g")
+
+[connection signal="visibility_changed" from="NodeExplorer" to="NodeExplorer/NodeTree" method="_on_Node_Explorer_visibility_changed"]
+[connection signal="item_activated" from="NodeExplorer/NodeTree" to="NodeExplorer/NodeTree" method="_on_node_tree_item_activated"]
+[connection signal="pressed" from="NodeExplorer/ReloadButton" to="NodeExplorer/NodeTree" method="_on_reload_button_pressed"]
+[connection signal="item_activated" from="NodeExplorer/PropertyList" to="NodeExplorer/NodeTree" method="_on_property_list_item_activated"]
+[connection signal="item_activated" from="NodeExplorer/MethodList" to="NodeExplorer/NodeTree" method="_on_method_list_item_activated"]
+[connection signal="text_submitted" from="NodeExplorer/Search" to="NodeExplorer/NodeTree" method="_on_Search_text_entered"]
+[connection signal="pressed" from="NodeExplorer/SetPropertyButton" to="NodeExplorer/NodeTree" method="_on_set_property_button_pressed"]
+[connection signal="pressed" from="NodeExplorer/CallMethodButton" to="NodeExplorer/NodeTree" method="_on_call_method_button_pressed"]
+[connection signal="text_submitted" from="NodeExplorer/PropertyHeader/PropertySearch" to="NodeExplorer/NodeTree" method="_on_PropertySearch_text_entered"]
+[connection signal="text_submitted" from="NodeExplorer/MethodHeader/MethodSearch" to="NodeExplorer/NodeTree" method="_on_MethodSearch_text_entered"]
+[connection signal="pressed" from="NodeExplorer/CloseButton" to="NodeExplorer/NodeTree" method="_on_CloseButton_pressed"]
+[connection signal="toggled" from="NodeExplorer/CheckButton" to="NodeExplorer/NodeTree" method="_on_CheckButton_toggled"]
+[connection signal="item_activated" from="NodeExplorer/ResourceTree" to="NodeExplorer/NodeTree" method="_on_resource_tree_item_activated"]
