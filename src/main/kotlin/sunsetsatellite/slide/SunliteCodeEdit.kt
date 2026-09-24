@@ -47,6 +47,8 @@ class SunliteCodeEdit: CodeEdit() {
 		ext = Path(path).extension
 		if(ext == "sl"){
 			syntaxHighlighter = SunliteCodeHighlighter()
+			syntaxHighlighter?.clearHighlightingCache()
+			syntaxHighlighter?.updateCache()
 		}
 		try {
 			text = Files.readString(Path(path))
@@ -99,6 +101,15 @@ class SunliteCodeEdit: CodeEdit() {
 
 	@Register
 	fun showErrors(errors: VariantArray<Dictionary<String, Any?>>) {
+		if(errors.isEmpty() && IDE().settings["advancedHighlighting"]?.value as Boolean){
+			syntaxHighlighter = SunliteDynamicCodeHighlighter()
+			syntaxHighlighter?.clearHighlightingCache()
+			syntaxHighlighter?.updateCache()
+		} else {
+			syntaxHighlighter = SunliteCodeHighlighter()
+			syntaxHighlighter?.clearHighlightingCache()
+			syntaxHighlighter?.updateCache()
+		}
 		if (errors.isEmpty()) {
 			for (i in 0 until getLineCount()) {
 				if(getLineBackgroundColor(i).r == 0.75) setLineBackgroundColor(i, Color(0,0,0,0))
@@ -108,7 +119,8 @@ class SunliteCodeEdit: CodeEdit() {
 			val map = (errors.first()["token"] as Dictionary<String, Any?>).toMap()
 			val token = Token(map)
 			errorLine.show()
-			firstError.text = errors.first()["message"].toString()
+			val regex = "\\[.*]".toRegex()
+			firstError.text = regex.replace(errors.first()["message"].toString(),"")
 			errorCount.text = "[${errors.size} errors]"
 			if(token.line >= 0 && token.line < getLineCount()) setLineBackgroundColor(token.line-1, Color(0.75,0,0,0.25))
 		}

@@ -90,6 +90,10 @@ class RunButton: Button(), LogEntryReceiver {
 
 	}
 
+	override fun debug(message: String) {
+		output.appendText("[color=gray]$message[/color]\n")
+	}
+
 	override fun info(message: String) {
 		output.appendText(message+"\n")
 	}

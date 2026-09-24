@@ -78,15 +78,20 @@ class CodeAnalysis: Node(), CompilerDataReceiver, LogEntryReceiver {
 			sl.compilerDataReceivers.add(this)
 			sl.logEntryReceivers.add(this)
 			val result = sl.parse(code)
-			analysisFinished(errors,result.tokens to result.statements)
+			analysisFinished(errors, result.tokens to result.statements)
 		}
 		thread?.setUncaughtExceptionHandler { t, e ->
 			if(e is ThreadDeath) return@setUncaughtExceptionHandler
-			val sw = StringWriter()
-			e.printStackTrace(PrintWriter(sw))
-			val s = sw.toString()
-			error(CompilerError(Token.unknown(),s))
-			analysisFinished(errors)
+			try {
+				val sw = StringWriter()
+				e.printStackTrace(PrintWriter(sw))
+				val s = sw.toString()
+				error(CompilerError(Token.unknown(),s))
+				err(s)
+				analysisFinished(errors)
+			} catch (e: Throwable){
+				e.printStackTrace()
+			}
 		}
 	}
 
@@ -127,6 +132,10 @@ class CodeAnalysis: Node(), CompilerDataReceiver, LogEntryReceiver {
 
 	override fun error(error: CompilerError) {
 		errors.add(0,error)
+	}
+
+	override fun debug(message: String) {
+
 	}
 
 	override fun info(message: String) {

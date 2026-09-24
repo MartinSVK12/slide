@@ -143,7 +143,7 @@ class Debugger: VBoxContainer(), BreakpointListener {
 
 	fun loadValues(frame: CallFrame, name: String, it: AnySLValue, parent: TreeItem) {
 		val item = createItem(
-			"$name: ${Type.fromValue(it.value, vm!!.sunlite)} = $it", parent
+			"$name: ${Type.fromValue(it.value)} = $it", parent
 		)
 		when(it){
 			is SLClassObj -> {
